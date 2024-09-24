@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/models/player_model_response.dart.dart';
+import 'package:flutter_task/models/player_details_model_response.dart';
 import 'package:flutter_task/screens/cricket_player_form_screen.dart';
 import 'package:flutter_task/screens/players_list_screen.dart';
 import 'package:flutter_task/screens/stadium_image_screen.dart';
@@ -17,7 +17,7 @@ class BottomNavScreenScreenState extends State<BottomNavScreenScreen> {
   final bottomNavKey = GlobalKey();
   final List<Widget> _pages = [
     PlayerListScreen(),
-    CricketPlayerForm(PlayersData(), false),
+    CricketPlayerForm(PlayerDetails(), false),
     StadiumImageScreen(),
   ];
 

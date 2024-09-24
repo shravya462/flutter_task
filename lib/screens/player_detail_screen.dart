@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/models/player_details_model_response.dart';
 import 'package:flutter_task/models/player_model_response.dart.dart';
 import 'package:flutter_task/providers/player_provider.dart';
 import 'package:flutter_task/screens/cricket_player_form_screen.dart';
@@ -24,7 +25,14 @@ class PlayerDetailScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+          leading: IconButton(
+        onPressed: () {
+          Provider.of<PlayerProvider>(context, listen: false).fetchPlayers();
+          Navigator.pop(context);
+        },
+        icon: const Icon(Icons.arrow_back),
+      )),
       body: Consumer<PlayerProvider>(
         builder: (context, playerProvider, child) {
           return playerProvider.isLoading
@@ -115,7 +123,10 @@ class PlayerDetailScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (ctx) => CricketPlayerForm(player, true),
+                              builder: (ctx) => CricketPlayerForm(
+                                  playerProvider.playersDetails ??
+                                      PlayerDetails(),
+                                  true),
                             ),
                           );
                         },
