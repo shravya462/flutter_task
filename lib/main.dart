@@ -24,8 +24,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          bottomNavigationBarTheme:
-              BottomNavigationBarThemeData(backgroundColor: Colors.amberAccent),
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
             surfaceTintColor: Colors.white,
